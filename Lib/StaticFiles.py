@@ -32,7 +32,6 @@ class StaticFileHandler(object):
             try:
                 req = urllib2.Request('https:{}'.format(url), headers={ 'User-Agent': 'Mozilla/5.0' })
                 content = urllib2.urlopen(req).read()
-                #content = _urllib2.urlopen('https:{}'.format(url)).read()
                 with open(full_filename, 'wb') as output_file:
                     output_file.write(content)
             except _urllib2.HTTPError as e:
