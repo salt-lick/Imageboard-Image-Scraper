@@ -28,9 +28,8 @@ class ThreadPool(object):
             """
             while True:
                 try:
-                    req = urllib2.Request(self.url, headers={ 'User-Agent': 'Mozilla/5.0' })
-                    return urllib2.urlopen(req).read()
-                    #return _urllib2.urlopen(self.url).read()
+                    req = _urllib2.Request(self.url, headers={ 'User-Agent': 'Mozilla/5.0' })
+                    return _urllib2.urlopen(req).read()
                 except _urllib2.HTTPError as e:
                     if self.url in _Globals.globals.links:
                         print >> _sys.stderr, "Recieved `%s' while trying to read link %s, removing it from links." % (
