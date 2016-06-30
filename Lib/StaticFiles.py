@@ -30,8 +30,8 @@ class StaticFileHandler(object):
         if self.file_expired(file_modified_timestamp):
             ## d/l lel
             try:
-                req = urllib2.Request('https:{}'.format(url), headers={ 'User-Agent': 'Mozilla/5.0' })
-                content = urllib2.urlopen(req).read()
+                req = _urllib2.Request('https:{}'.format(url), headers={ 'User-Agent': 'Mozilla/5.0' })
+                content = _urllib2.urlopen(req).read()
                 with open(full_filename, 'wb') as output_file:
                     output_file.write(content)
             except _urllib2.HTTPError as e:
